@@ -1,0 +1,17 @@
+stages:
+  - build
+
+variables:
+  REGISTRY: hub.alterway.fr
+
+before_script:
+  - if [[ "$CI_BUILD_REF_NAME" != master ]]; then REGISTRY="$REGISTRY/$CI_BUILD_REF_NAME"; fi
+
+build:
+  stage: build
+  script:
+    - docker build --pull -t $REGISTRY/keepalived:1.2 1.2/
+    - docker push $REGISTRY/keepalived:1.2
+  only:
+    - preprod
+    - master
