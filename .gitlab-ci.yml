@@ -3,15 +3,20 @@ stages:
 
 variables:
   REGISTRY: hub.alterway.fr
+  NAMESPACE: library
 
 before_script:
-  - if [[ "$CI_BUILD_REF_NAME" != master ]]; then REGISTRY="$REGISTRY/$CI_BUILD_REF_NAME"; fi
+  - if [[ "$CI_BUILD_REF_NAME" != master ]]; then NAMESPACE="$CI_BUILD_REF_NAME"; fi
 
 build:
   stage: build
   script:
-    - docker build --pull -t $REGISTRY/keepalived:1.2 1.2/
-    - docker push $REGISTRY/keepalived:1.2
+    - docker build --pull -t $REGISTRY/$NAMESPACE/keepalived:1.2 1.2/ > /dev/null
+    - docker build --pull -t $REGISTRY/$NAMESPACE/keepalived:1.2-dockerinside-1.10 1.2-dockerinside-1.10/ > /dev/null
+    - docker build --pull -t $REGISTRY/$NAMESPACE/keepalived:1.2-dockerinside-1.11 1.2-dockerinside-1.11/ > /dev/null
+    - docker push $REGISTRY/$NAMESPACE/keepalived:1.2 > /dev/null
+    - docker push $REGISTRY/$NAMESPACE/keepalived:1.2-dockerinside-1.10 > /dev/null
+    - docker push $REGISTRY/$NAMESPACE/keepalived:1.2-dockerinside-1.11 > /dev/null
   only:
     - preprod
     - master
