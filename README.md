@@ -10,7 +10,7 @@ Kernel module : ip_vs on the nodes - `modprob ip_vs`
 ## Available Versions
 
 - 1.2 (docker tags: `1.2`, `latest`) : works only on docker host debian jessie and ubuntu trusty
-- 1.2-dockerinside (docker tags: `1.2-dockerinside-1.10`, `1.2-dockerinside-1.11)
+- 1.2-dockerinside (docker tags: `1.2-dockerinside-1.10`, `1.2-dockerinside-1.11`)
 
 ## Environment variables
 
