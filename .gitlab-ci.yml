@@ -11,12 +11,12 @@ before_script:
 build:
   stage: build
   script:
-    - docker build --pull -t $REGISTRY/$NAMESPACE/keepalived:1.2 1.2/
-    - docker build --pull -t $REGISTRY/$NAMESPACE/keepalived:1.2-dockerinside-1.10 1.2-dockerinside-1.10/
-    - docker build --pull -t $REGISTRY/$NAMESPACE/keepalived:1.2-dockerinside-1.11 1.2-dockerinside-1.11/
-    - docker push $REGISTRY/$NAMESPACE/keepalived:1.2
-    - docker push $REGISTRY/$NAMESPACE/keepalived:1.2-dockerinside-1.10
-    - docker push $REGISTRY/$NAMESPACE/keepalived:1.2-dockerinside-1.11
+    - docker build --pull -t $REGISTRY/$NAMESPACE/keepalived:1.2 1.2/ > /dev/null
+    - docker build --pull -t $REGISTRY/$NAMESPACE/keepalived:1.2-dockerinside-1.10 1.2-dockerinside-1.10/ > /dev/null
+    - docker build --pull -t $REGISTRY/$NAMESPACE/keepalived:1.2-dockerinside-1.11 1.2-dockerinside-1.11/ > /dev/null
+    - docker push $REGISTRY/$NAMESPACE/keepalived:1.2 > /dev/null
+    - docker push $REGISTRY/$NAMESPACE/keepalived:1.2-dockerinside-1.10 > /dev/null
+    - docker push $REGISTRY/$NAMESPACE/keepalived:1.2-dockerinside-1.11 > /dev/null
   only:
     - preprod
     - master
