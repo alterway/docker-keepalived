@@ -5,7 +5,7 @@ Containers health can be checked to keep the virtual ip on the node.
 
 ## Pre-requisites
 
-Kernel module : ip_vs on the nodes - `modprob ip_vs`
+Kernel module : ip_vs on the nodes - `modprobe ip_vs`
 
 ## Available Versions
 
